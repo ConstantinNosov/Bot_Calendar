@@ -3,3 +3,5 @@ events:
     description: "Событие 1"
   - date: 2024-05-01
     description: "Событие 2"
+  - date: 2024-04-04
+    description: "Событие 3"

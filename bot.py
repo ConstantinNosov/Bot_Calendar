@@ -4,7 +4,7 @@ def main():
     file_path = 'events.yaml'  # Укажите актуальный путь к файлу
     event_finder = EventFinder(file_path)
     events = event_finder.read_events_from_yaml()
-    today_events = event_finder.find_today_events(events)
+    today_events = event_finder.find_events_by_today_day(events)
     
     if today_events:
         print("События на сегодня:")

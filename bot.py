@@ -1,4 +1,11 @@
 from event_finder import EventFinder
+from config import bot_token, chat_id
+import time
+from bot_lib import TelegramBot
+
+
+bot = TelegramBot(chat_id, bot_token)
+
 
 def main():
     file_path = 'events.yaml'  # Укажите актуальный путь к файлу
@@ -7,13 +14,11 @@ def main():
     today_events = event_finder.find_events_by_today_day(events)
     
     if today_events:
-        print("События на сегодня:")
         for event in today_events:
-            print(f"- {event['description']}")
+            bot.send_message(f"- {event['description']}")
     else:
-        print("На сегодня событий нет.")
+        bot.send_message("На сегодня задач нет.")
 
-if __name__ == '__main__':
+while True:
     main()
-
-    
+    time.sleep(10)
